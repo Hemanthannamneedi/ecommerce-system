@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Awesome E-Commerce Store</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts - Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -76,24 +74,22 @@
 </head>
 <body class="antialiased">
 
-    <!-- Navigation Bar -->
     <nav class="bg-indigo-700 p-4 shadow-md sticky top-0 z-50 rounded-b-xl mx-2 mt-2">
         <div class="container mx-auto flex justify-between items-center text-white">
-            <a href="#" class="text-2xl font-bold">MyStore</a>
+            <a href="index.html" class="text-2xl font-bold">MyStore</a>
             <div class="flex items-center space-x-6">
                 <ul class="flex space-x-6">
-                    <li><a href="#products" class="text-lg hover:text-indigo-200 transition-colors duration-300">Products</a></li>
+                    <li><a href="index.html" class="text-lg hover:text-indigo-200 transition-colors duration-300">Products</a></li>
                     <li><a href="cart.html" class="text-lg hover:text-indigo-200 transition-colors duration-300">Cart</a></li>
                     <li><a href="account.html" class="text-lg hover:text-indigo-200 transition-colors duration-300">Account</a></li>
                 </ul>
                 <div class="relative">
-                    <button class="bg-indigo-500 hover:bg-indigo-600 text-white p-2 rounded-full flex items-center justify-center">
-                        <!-- Shopping Cart Icon (using a simple SVG as placeholder) -->
+                    <a href="cart.html" class="bg-indigo-500 hover:bg-indigo-600 text-white p-2 rounded-full flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 0a2 2 0 100 4 2 2 0 000-4z" />
                         </svg>
-                        <span id="cart-item-count" class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full px-2 py-1">0</span> <!-- Changed to 0 and added ID -->
-                    </button>
+                        <span id="cart-item-count" class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full px-2 py-1">0</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -101,24 +97,20 @@
 
     <main class="container mx-auto px-4 py-8 md:py-16">
 
-        <!-- Hero Section / Call to Action -->
         <section class="bg-white p-8 md:p-12 rounded-xl shadow-xl text-center mb-16">
             <h1 class="text-4xl md:text-5xl font-extrabold text-indigo-800 leading-tight mb-4">Discover Your Next Favorite Product!</h1>
             <p class="text-lg md:text-xl text-gray-700 mb-6">
                 Explore our wide range of high-quality products, hand-picked just for you. Enjoy a seamless shopping experience.
             </p>
-            <!-- Removed the "Start Shopping" button -->
         </section>
 
-        <!-- Product Listings Section -->
         <section id="products" class="mb-16">
             <h2 class="text-3xl md:text-4xl font-bold text-center text-indigo-700 mb-10 section-heading mx-auto">Featured Products</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
 
-                <!-- Product Card 1 -->
-                <div class="product-card p-4 text-center flex flex-col justify-between">
+                <div class="product-card p-4 text-center flex flex-col justify-between" data-product-id="prod-001" data-product-name="Wireless Noise-Cancelling Headphones" data-product-price="199.99" data-product-image="https://img.freepik.com/premium-photo/stylish-casual-fashionable-hipster-student-woman-teenager-with-black-wireless-headphones-while-walking-around-city-lover-music-enjoys-listening-music_122732-2182.jpg?ga=GA1.1.1906634240.1748686622&semt=ais_hybrid&w=740">
                     <div>
-                        <img src="https://img.freepik.com/premium-photo/stylish-casual-fashionable-hipster-student-woman-teenager-with-black-wireless-headphones-while-walking-around-city-lover-music-enjoys-listening-music_122732-2182.jpg?ga=GA1.1.1906634240.1748686622&semt=ais_hybrid&w=740" alt="Product A Image" class="rounded-lg mb-4 w-full h-48 object-cover">
+                        <img src="https://img.freepik.com/premium-photo/stylish-casual-fashionable-hipster-student-woman-teenager-with-black-wireless-headphones-while-walking-around-city-lover-music-enjoys-listening-music_122732-2182.jpg?ga=GA1.1.1906634240.1748686622&semt=ais_hybrid&w=740" alt="Wireless Noise-Cancelling Headphones" class="rounded-lg mb-4 w-full h-48 object-cover">
                         <h3 class="text-xl font-semibold text-gray-800 mb-2">Wireless Noise-Cancelling Headphones</h3>
                         <p class="text-gray-600 text-sm mb-3 line-clamp-3">
                             Immerse yourself in pure sound with these comfortable, high-fidelity headphones. Perfect for travel or daily commutes.
@@ -130,10 +122,9 @@
                     </div>
                 </div>
 
-                <!-- Product Card 2 -->
-                <div class="product-card p-4 text-center flex flex-col justify-between">
+                <div class="product-card p-4 text-center flex flex-col justify-between" data-product-id="prod-002" data-product-name="Smart Home Assistant Pro" data-product-price="99.00" data-product-image="https://img.freepik.com/premium-photo/home-automation-hub-managing-multiple-devices-like-lights-security-climate_1314467-145980.jpg?ga=GA1.1.1906634240.1748686622&semt=ais_hybrid&w=740">
                     <div>
-                        <img src="https://img.freepik.com/premium-photo/home-automation-hub-managing-multiple-devices-like-lights-security-climate_1314467-145980.jpg?ga=GA1.1.1906634240.1748686622&semt=ais_hybrid&w=740" alt="Product B Image" class="rounded-lg mb-4 w-full h-48 object-cover">
+                        <img src="https://img.freepik.com/premium-photo/home-automation-hub-managing-multiple-devices-like-lights-security-climate_1314467-145980.jpg?ga=GA1.1.1906634240.1748686622&semt=ais_hybrid&w=740" alt="Smart Home Assistant Pro" class="rounded-lg mb-4 w-full h-48 object-cover">
                         <h3 class="text-xl font-semibold text-gray-800 mb-2">Smart Home Assistant Pro</h3>
                         <p class="text-gray-600 text-sm mb-3 line-clamp-3">
                             Control your smart home devices with voice commands, play music, and get daily updates.
@@ -145,10 +136,9 @@
                     </div>
                 </div>
 
-                <!-- Product Card 3 -->
-                <div class="product-card p-4 text-center flex flex-col justify-between">
+                <div class="product-card p-4 text-center flex flex-col justify-between" data-product-id="prod-003" data-product-name="Portable Power Bank 20000mAh" data-product-price="45.50" data-product-image="https://img.freepik.com/premium-photo/black-phone-sits-desk-laptop-pen_1225213-1893.jpg?ga=GA1.1.1906634240.1748686622&semt=ais_hybrid&w=740">
                     <div>
-                        <img src="https://img.freepik.com/premium-photo/black-phone-sits-desk-laptop-pen_1225213-1893.jpg?ga=GA1.1.1906634240.1748686622&semt=ais_hybrid&w=740" alt="Product C Image" class="rounded-lg mb-4 w-full h-48 object-cover">
+                        <img src="https://img.freepik.com/premium-photo/black-phone-sits-desk-laptop-pen_1225213-1893.jpg?ga=GA1.1.1906634240.1748686622&semt=ais_hybrid&w=740" alt="Portable Power Bank 20000mAh" class="rounded-lg mb-4 w-full h-48 object-cover">
                         <h3 class="text-xl font-semibold text-gray-800 mb-2">Portable Power Bank 20000mAh</h3>
                         <p class="text-gray-600 text-sm mb-3 line-clamp-3">
                             Never run out of battery on the go. Fast charging and high capacity for all your devices.
@@ -160,10 +150,9 @@
                     </div>
                 </div>
 
-                <!-- Product Card 4 -->
-                <div class="product-card p-4 text-center flex flex-col justify-between">
+                <div class="product-card p-4 text-center flex flex-col justify-between" data-product-id="prod-004" data-product-name="Ergonomic Office Chair" data-product-price="349.99" data-product-image="https://img.freepik.com/premium-photo/modern-home-office-with-ergonomic-chair-desk-computer-stylish-decor_1294860-10704.jpg?ga=GA1.1.1906634240.1748686622&semt=ais_hybrid&w=740">
                     <div>
-                        <img src="https://img.freepik.com/premium-photo/modern-home-office-with-ergonomic-chair-desk-computer-stylish-decor_1294860-10704.jpg?ga=GA1.1.1906634240.1748686622&semt=ais_hybrid&w=740" alt="Product D Image" class="rounded-lg mb-4 w-full h-48 object-cover">
+                        <img src="https://img.freepik.com/premium-photo/modern-home-office-with-ergonomic-chair-desk-computer-stylish-decor_1294860-10704.jpg?ga=GA1.1.1906634240.1748686622&semt=ais_hybrid&w=740" alt="Ergonomic Office Chair" class="rounded-lg mb-4 w-full h-48 object-cover">
                         <h3 class="text-xl font-semibold text-gray-800 mb-2">Ergonomic Office Chair</h3>
                         <p class="text-gray-600 text-sm mb-3 line-clamp-3">
                             Designed for maximum comfort and support during long working hours. Boost your productivity.
@@ -175,45 +164,117 @@
                     </div>
                 </div>
 
+                <div class="product-card p-4 text-center flex flex-col justify-between" data-product-id="prod-005" data-product-name="High-Performance Gaming Laptop" data-product-price="1299.99" data-product-image="https://img.freepik.com/free-photo/view-gaming-desk-with-headphones-keyboard-mouse_23-2150697950.jpg?t=st=1720959445~exp=1720963045~hm=7e01297e163d09618a8019a5573428d011f06159670f43d0437b79d2b274c3e8&w=740">
+                    <div>
+                        <img src="https://img.freepik.com/free-photo/view-gaming-desk-with-headphones-keyboard-mouse_23-2150697950.jpg?t=st=1720959445~exp=1720963045~hm=7e01297e163d09618a8019a5573428d011f06159670f43d0437b79d2b274c3e8&w=740" alt="High-Performance Gaming Laptop" class="rounded-lg mb-4 w-full h-48 object-cover">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">High-Performance Gaming Laptop</h3>
+                        <p class="text-gray-600 text-sm mb-3 line-clamp-3">
+                            Experience next-gen gaming with a powerful processor, dedicated graphics, and a stunning display.
+                        </p>
+                    </div>
+                    <div class="mt-auto">
+                        <p class="text-2xl font-bold text-indigo-600 mb-4">$1299.99</p>
+                        <button class="btn-primary w-full add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card p-4 text-center flex flex-col justify-between" data-product-id="prod-006" data-product-name="Latest Flagship Smartphone" data-product-price="899.00" data-product-image="https://img.freepik.com/premium-photo/black-smartphone-with-blank-screen-is-shown-on-light-gray-background_130388-1002.jpg?w=740">
+                    <div>
+                        <img src="https://img.freepik.com/premium-photo/black-smartphone-with-blank-screen-is-shown-on-light-gray-background_130388-1002.jpg?w=740" alt="Latest Flagship Smartphone" class="rounded-lg mb-4 w-full h-48 object-cover">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Latest Flagship Smartphone</h3>
+                        <p class="text-gray-600 text-sm mb-3 line-clamp-3">
+                            Capture stunning photos and videos, enjoy lightning-fast performance, and a sleek design.
+                        </p>
+                    </div>
+                    <div class="mt-auto">
+                        <p class="text-2xl font-bold text-indigo-600 mb-4">$899.00</p>
+                        <button class="btn-primary w-full add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card p-4 text-center flex flex-col justify-between" data-product-id="prod-007" data-product-name="Foldable Mini Drone" data-product-price="450.00" data-product-image="https://img.freepik.com/free-photo/black-quadcopter-drone-with-camera-isolated-background_169002-3932.jpg?t=st=1720959648~exp=1720963248~hm=178c7c945b41295326588f06f5223e7289f666f445037305ce636a0890ed1a38&w=740">
+                    <div>
+                        <img src="https://img.freepik.com/free-photo/black-quadcopter-drone-with-camera-isolated-background_169002-3932.jpg?t=st=1720959648~exp=1720963248~hm=178c7c945b41295326588f06f5223e7289f666f445037305ce636a0890ed1a38&w=740" alt="Foldable Mini Drone" class="rounded-lg mb-4 w-full h-48 object-cover">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Foldable Mini Drone with 4K Camera</h3>
+                        <p class="text-gray-600 text-sm mb-3 line-clamp-3">
+                            Capture breathtaking aerial shots with this compact, easy-to-fly drone with a high-resolution camera.
+                        </p>
+                    </div>
+                    <div class="mt-auto">
+                        <p class="text-2xl font-bold text-indigo-600 mb-4">$450.00</p>
+                        <button class="btn-primary w-full add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card p-4 text-center flex flex-col justify-between" data-product-id="prod-008" data-product-name="Professional DSLR Camera" data-product-price="1599.00" data-product-image="https://img.freepik.com/free-photo/dslr-camera-lens-white-background-close-up-studio-shot_488220-4101.jpg?t=st=1720959828~exp=1720963428~hm=841c888310f7690a56e2978cf230732eb0cf58849673898083c2718ef86488a0&w=740">
+                    <div>
+                        <img src="https://img.freepik.com/free-photo/dslr-camera-lens-white-background-close-up-studio-shot_488220-4101.jpg?t=st=1720959828~exp=1720963428~hm=841c888310f7690a56e2978cf230732eb0cf58849673898083c2718ef86488a0&w=740" alt="Professional DSLR Camera" class="rounded-lg mb-4 w-full h-48 object-cover">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Professional DSLR Camera</h3>
+                        <p class="text-gray-600 text-sm mb-3 line-clamp-3">
+                            Capture stunning, high-quality images with this professional-grade camera and versatile lens kit.
+                        </p>
+                    </div>
+                    <div class="mt-auto">
+                        <p class="text-2xl font-bold text-indigo-600 mb-4">$1599.00</p>
+                        <button class="btn-primary w-full add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+
             </div>
         </section>
 
-        <!-- The conceptual Shopping Cart Section is moved to cart.html -->
-        <!-- The conceptual Payment Processing is also moved to cart.html to keep index.html clean and focused on products -->
-
     </main>
 
-    <!-- Footer -->
     <footer class="bg-gray-800 text-white p-6 text-center mt-16 rounded-t-xl mx-2 mb-2">
         <p>&copy; 2025 My Awesome E-Commerce Store. All rights reserved.</p>
         <p class="mt-2 text-sm">Crafted with <span class="text-red-500">&hearts;</span> and Tailwind CSS.</p>
     </footer>
 
     <script>
-        // Get the cart item count element
         const cartItemCountElement = document.getElementById('cart-item-count');
 
-        // Function to update cart count display and localStorage
-        function updateCartDisplay() {
-            let cartItemCount = localStorage.getItem('cartItemCount') || 0;
-            cartItemCountElement.textContent = cartItemCount;
+        // Function to update cart count from localStorage
+        function updateCartCount() {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            let totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+            cartItemCountElement.textContent = totalItems;
         }
-
-        // Initialize cart display on page load
-        updateCartDisplay();
 
         // Get all "Add to Cart" buttons
         const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
 
         // Add event listener to each "Add to Cart" button
         addToCartButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                let cartItemCount = parseInt(localStorage.getItem('cartItemCount') || 0);
-                cartItemCount++; // Increment the count
-                localStorage.setItem('cartItemCount', cartItemCount); // Store in localStorage
-                updateCartDisplay(); // Update the display
+            button.addEventListener('click', (e) => {
+                const productCard = e.target.closest('.product-card');
+                const productId = productCard.dataset.productId;
+                const productName = productCard.dataset.productName;
+                const productPrice = parseFloat(productCard.dataset.productPrice);
+                const productImage = productCard.dataset.productImage;
+
+                let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+                let existingItem = cartItems.find(item => item.id === productId);
+
+                if (existingItem) {
+                    existingItem.quantity++;
+                } else {
+                    cartItems.push({
+                        id: productId,
+                        name: productName,
+                        price: productPrice,
+                        image: productImage,
+                        quantity: 1
+                    });
+                }
+
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                updateCartCount(); // Update the display
+                alert(`${productName} added to cart!`);
             });
         });
+
+        // Initialize cart display on page load
+        updateCartCount();
     </script>
 </body>
 </html>
