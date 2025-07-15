@@ -73,12 +73,12 @@
                     <li><a href="account.html" class="text-lg hover:text-indigo-200 transition-colors duration-300">Account</a></li>
                 </ul>
                 <div class="relative">
-                    <button class="bg-indigo-500 hover:bg-indigo-600 text-white p-2 rounded-full flex items-center justify-center">
+                    <a href="cart.html" class="bg-indigo-500 hover:bg-indigo-600 text-white p-2 rounded-full flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 0a2 2 0 100 4 2 2 0 000-4z" />
                         </svg>
                         <span id="cart-item-count-nav" class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full px-2 py-1">0</span>
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -204,23 +204,12 @@
             }
 
             // Update cart count
-            cartItemCountNavElement.textContent = cartItems.length;
-            displayCartCountElement.textContent = cartItems.length;
+            let totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+            cartItemCountNavElement.textContent = totalItems;
+            displayCartCountElement.textContent = totalItems;
             
             // Recalculate and display the total
             updateCartTotal();
-        }
-
-        // Example: Add a few dummy items to the cart for testing purposes.
-        // In a real application, you would add items from your product page.
-        // This is here to demonstrate the cart functionality.
-        if (!localStorage.getItem('cartItems')) {
-            const dummyItems = [
-                { id: 'prod-001', name: 'Vintage Leather Wallet', price: 49.99, quantity: 1, image: 'https://placehold.co/80x80/d8b4fe/6b21a8?text=Wallet' },
-                { id: 'prod-002', name: 'Noise-Cancelling Headphones', price: 199.50, quantity: 2, image: 'https://placehold.co/80x80/a5f3fc/0e7490?text=Headphones' },
-                { id: 'prod-003', name: 'Smartwatch', price: 120.00, quantity: 1, image: 'https://placehold.co/80x80/fecaca/991b1b?text=Watch' }
-            ];
-            localStorage.setItem('cartItems', JSON.stringify(dummyItems));
         }
 
         // Initialize cart display when the cart page loads
