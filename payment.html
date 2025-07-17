@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Payment Page</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* Light gray background */
+        }
+        /* Custom styles for focus states */
+        input:focus, select:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5); /* Blue glow on focus */
+            border-color: #4299e1; /* Blue border on focus */
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+    <div class="bg-white rounded-xl shadow-lg p-6 md:p-8 w-full max-w-4xl">
+        <h1 class="text-3xl font-bold text-gray-800 mb-8 text-center">Checkout</h1>
+
+        <form id="paymentForm" class="space-y-8">
+
+            <!-- Contact Information Section -->
+            <div class="border-b border-gray-200 pb-8">
+                <h2 class="text-2xl font-semibold text-gray-700 mb-6">Contact Information</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email address</label>
+                        <input type="email" id="email" name="email" autocomplete="email" required
+                               class="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500 sm:text-sm transition duration-150 ease-in-out">
+                    </div>
+                    <div>
+                        <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone number (Optional)</label>
+                        <input type="tel" id="phone" name="phone" autocomplete="tel"
+                               class="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500 sm:text-sm transition duration-150 ease-in-out">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shipping Address Section -->
+            <div class="border-b border-gray-200 pb-8">
+                <h2 class="text-2xl font-semibold text-gray-700 mb-6">Shipping Address</h2>
+                <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    <div class="col-span-full">
+                        <label for="fullName" class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" autocomplete="name" required
+                               class="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500 sm:text-sm transition duration-150 ease-in-out">
+                    </div>
+                    <div class="col-span-full">
+                        <label for="address1" class="block text-sm font-medium text-gray-700 mb-2">Address Line 1</label>
+                        <input type="text" id="address1" name="address1" autocomplete="street-address" required
+                               class="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500 sm:text-sm transition duration-150 ease-in-out">
+                    </div>
+                    <div class="col-span-full">
+                        <label for="address2" class="block text-sm font-medium text-gray-700 mb-2">Address Line 2 (Optional)</label>
+                        <input type="text" id="address2" name="address2" autocomplete="address-line2"
+                               class="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500 sm:text-sm transition duration-150 ease-in-out">
+                    </div>
+                    <div>
+                        <label for="city" class="block text-sm font-medium text-gray-700 mb-2">City</label>
+                        <input type="text" id="city" name="city" autocomplete="address-level2" required
+                               class="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500 sm:text-sm transition duration-150 ease-in-out">
+                    </div>
+                    <div>
+                        <label for="state" class="block text-sm font-medium text-gray-700 mb-2">State / Province</label>
+                        <input type="text" id="state" name="state" autocomplete="address-level1" required
+                               class="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500 sm:text-sm transition duration-150 ease-in-out">
+                    </div>
+                    <div>
+                        <label for="zip" class="block text-sm font-medium text-gray-700 mb-2">Zip / Postal code</label>
+                        <input type="text" id="zip" name="zip" autocomplete="postal-code" required
+                               class="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500 sm:text-sm transition duration-150 ease-in-out">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Method Section -->
+            <div>
+                <h2 class="text-2xl font-semibold text-gray-700 mb-6">Payment Method</h2>
+
+                <div class="mb-6 space-y-4">
+                    <div class="flex items-center">
+                        <input type="radio" id="paymentCreditCard" name="paymentMethod" value="creditCard" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300" checked>
+                        <label for="paymentCreditCard" class="ml-3 block text-base font-medium text-gray-700">Credit Card</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="radio" id="paymentCOD" name="paymentMethod" value="cod" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300">
+                        <label for="paymentCOD" class="ml-3 block text-base font-medium text-gray-700">Cash on Delivery (COD)</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="radio" id="paymentUPI" name="paymentMethod" value="upi" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300">
+                        <label for="paymentUPI" class="ml-3 block text-base font-medium text-gray-700">UPI</label>
+                    </div>
+                </div>
+
+                <div id="creditCardDetails" class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                    <div class="col-span-full">
+                        <label for="cardNumber" class="block text-sm font-medium text-gray-700 mb-2">Card number</label>
+                        <input type="text" id="cardNumber" name="cardNumber" autocomplete="cc-number" required
+                               pattern="[0-9]{13,19}" title="Credit card number (13-19 digits)"
+                               class="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500 sm:text-sm transition duration-150 ease-in-out">
+                    </div>
+                    <div>
+                        <label for="expiryDate" class="block text-sm font-medium text-gray-700 mb-2">Expiration date (MM/YY)</label>
+                        <input type="text" id="expiryDate" name="expiryDate" autocomplete="cc-exp" required
+                               pattern="(0[1-9]|1[0-2])\/([0-9]{2})" placeholder="MM/YY"
+                               class="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500 sm:text-sm transition duration-150 ease-in-out">
+                    </div>
+                    <div>
+                        <label for="cvv" class="block text-sm font-medium text-gray-700 mb-2">CVV</label>
+                        <input type="text" id="cvv" name="cvv" autocomplete="cc-csc" required
+                               pattern="[0-9]{3,4}" title="CVV (3 or 4 digits)"
+                               class="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500 sm:text-sm transition duration-150 ease-in-out">
+                    </div>
+                    <div class="col-span-full">
+                        <label for="cardholderName" class="block text-sm font-medium text-gray-700 mb-2">Cardholder name</label>
+                        <input type="text" id="cardholderName" name="cardholderName" autocomplete="cc-name" required
+                               class="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500 sm:text-sm transition duration-150 ease-in-out">
+                    </div>
+                </div>
+
+                <div id="upiDetails" class="grid grid-cols-1 gap-6 sm:grid-cols-2 hidden">
+                    <div class="col-span-full">
+                        <label for="upiId" class="block text-sm font-medium text-gray-700 mb-2">UPI ID</label>
+                        <input type="text" id="upiId" name="upiId" placeholder="yourname@bankupi"
+                               class="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500 sm:text-sm transition duration-150 ease-in-out">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Place Order Button -->
+            <div class="pt-8">
+                <button type="submit"
+                        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50">
+                    Place Order
+                </button>
+            </div>
+        </form>
+
+        <!-- Custom Modal for Messages -->
+        <div id="messageModal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50">
+            <div class="bg-white rounded-lg shadow-xl p-6 w-80 max-w-sm text-center">
+                <p id="modalMessage" class="text-lg font-semibold text-gray-800 mb-4"></p>
+                <button id="closeModal" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md transition duration-150 ease-in-out">
+                    OK
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const paymentForm = document.getElementById('paymentForm');
+        const creditCardRadio = document.getElementById('paymentCreditCard');
+        const codRadio = document.getElementById('paymentCOD');
+        const upiRadio = document.getElementById('paymentUPI');
+
+        const creditCardDetails = document.getElementById('creditCardDetails');
+        const upiDetails = document.getElementById('upiDetails');
+
+        const creditCardInputs = creditCardDetails.querySelectorAll('input');
+        const upiInputs = upiDetails.querySelectorAll('input');
+
+        // Function to toggle payment method fields visibility and required attribute
+        function togglePaymentFields() {
+            // Hide all payment specific details and remove required attributes first
+            creditCardDetails.classList.add('hidden');
+            creditCardInputs.forEach(input => input.removeAttribute('required'));
+            upiDetails.classList.add('hidden');
+            upiInputs.forEach(input => input.removeAttribute('required'));
+
+            if (creditCardRadio.checked) {
+                creditCardDetails.classList.remove('hidden');
+                creditCardInputs.forEach(input => input.setAttribute('required', ''));
+            } else if (upiRadio.checked) {
+                upiDetails.classList.remove('hidden');
+                upiInputs.forEach(input => input.setAttribute('required', ''));
+            }
+            // COD has no specific fields, so no action needed for it
+        }
+
+        // Initial call to set correct state on load
+        togglePaymentFields();
+
+        // Add event listeners for radio button changes
+        creditCardRadio.addEventListener('change', togglePaymentFields);
+        codRadio.addEventListener('change', togglePaymentFields);
+        upiRadio.addEventListener('change', togglePaymentFields);
+
+        paymentForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const form = event.target;
+            let message = "";
+
+            // Check validity based on selected payment method
+            if (creditCardRadio.checked) {
+                if (!form.checkValidity()) {
+                    showMessage("Please fill in all required credit card fields correctly.");
+                    return;
+                }
+                message = "Order placed successfully! Your order is booked and payment will be processed.";
+            } else if (codRadio.checked) {
+                // For COD, only general form fields (contact, shipping) need validation
+                if (!form.checkValidity()) {
+                    showMessage("Please fill in all required contact and shipping fields correctly.");
+                    return;
+                }
+                message = "Your order is booked! Payment will be collected upon delivery.";
+            } else if (upiRadio.checked) {
+                if (!form.checkValidity()) {
+                    showMessage("Please fill in all required UPI fields correctly.");
+                    return;
+                }
+                message = "Order placed successfully! Your order is booked and UPI payment details will be sent.";
+            } else {
+                showMessage("Please select a payment method.");
+                return;
+            }
+
+            console.log('Form submitted!');
+            // In a real application, you would send this data to a server for processing.
+            // You would typically send data using fetch API here, including the selected payment method:
+            /*
+            const selectedPaymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+            const formData = {
+                email: document.getElementById('email').value,
+                fullName: document.getElementById('fullName').value,
+                // ... other form data
+                paymentMethod: selectedPaymentMethod
+            };
+
+            if (selectedPaymentMethod === 'creditCard') {
+                formData.cardNumber = document.getElementById('cardNumber').value;
+                formData.expiryDate = document.getElementById('expiryDate').value;
+                formData.cvv = document.getElementById('cvv').value;
+                formData.cardholderName = document.getElementById('cardholderName').value;
+            } else if (selectedPaymentMethod === 'upi') {
+                formData.upiId = document.getElementById('upiId').value;
+            }
+
+            fetch('/api/process-payment', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showMessage(message); // Use the dynamically set message
+                    form.reset(); // Clear the form
+                } else {
+                    showMessage("Order failed: " + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showMessage("An error occurred while processing your order. Please try again.");
+            });
+            */
+
+            // Simulate success for demonstration
+            showMessage(message);
+            form.reset(); // Clear the form after successful submission
+        });
+
+        // Function to display custom modal message
+        function showMessage(message) {
+            const modal = document.getElementById('messageModal');
+            const modalMessage = document.getElementById('modalMessage');
+            modalMessage.textContent = message;
+            modal.classList.remove('hidden');
+        }
+
+        // Close modal when OK button is clicked
+        document.getElementById('closeModal').addEventListener('click', function() {
+            document.getElementById('messageModal').classList.add('hidden');
+            // Redirect to index.html after closing the modal
+            window.location.href = 'index.html';
+        });
+
+        // Optional: Add formatting for expiry date (MM/YY)
+        document.getElementById('expiryDate').addEventListener('input', function(e) {
+            let input = e.target.value;
+            // Remove non-digits
+            input = input.replace(/\D/g, '');
+            // Add slash after 2 digits
+            if (input.length > 2) {
+                input = input.substring(0, 2) + '/' + input.substring(2, 4);
+            }
+            e.target.value = input;
+        });
+
+        // Optional: Add formatting for card number (spaces every 4 digits)
+        document.getElementById('cardNumber').addEventListener('input', function(e) {
+            let input = e.target.value;
+            // Remove non-digits and limit to 19 characters (max for credit cards with spaces)
+            input = input.replace(/\D/g, '').substring(0, 19);
+            // Add space every 4 digits
+            input = input.replace(/(\d{4})(?=\d)/g, '$1 ');
+            e.target.value = input;
+        });
+    </script>
+</body>
+</html>
